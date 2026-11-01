@@ -53,7 +53,7 @@ For co-op, set up two controllers (or a controller and keyboard) as player 1 and
 | Auto-charge on/off | **X** on either controller |
 | Boss Rush, VS mode | On the title menu |
 
-The full list, and what each mode does, is in the [README](README.md).
+The full list, and what each mode does, is in the [PATCH_NOTES](PATCH_NOTES.md).
 
 ## Troubleshooting
 
