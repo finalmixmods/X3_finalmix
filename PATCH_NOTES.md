@@ -1,7 +1,176 @@
-# Mega Man X3 Co-op — prototype 0.28
+# Mega Man X3 Co-op — prototype 0.31.6
 
-A two-player patch for **Mega Man X3 (USA)** on the SNES. Player 1 is X; **player 2 joins as Zero** on controller 2.
+A two-player patch for **Mega Man X3 (USA)** on the SNES. Player 1 is X (or Zero, see 0.30; switch any time with Select, see 0.31); **player 2 joins as Zero** on controller 2 (as X when player 1 is Zero).
 This is an early prototype. It is tested in the intro stage, all eight Maverick stages and their bosses, the four Doppler stages and their bosses (including the Maverick rematches, Dr. Doppler and Sigma), and the Ride Armors.
+
+0.31 adds **switching between X and Zero anywhere with Select**, **Zero riding the Ride Armors** (in the story and in VS mode), and a **VS mode secret: you start every round in the K (Kangaroo) Ride Armor**. Everything else is the same as 0.30 (below).
+
+## New in 0.31: Switching characters with Select
+
+- **Press Select (controller 1) in a stage to switch characters.** You become the other one right where you stand.
+- **The partner switches too.** If the CPU partner (called from the pause screen with L) or a second player is in, they become the character you just left: you X → Zero, partner Zero → X, and back.
+- **Health goes with the character.** When you and your partner swap, you take over the health the other character had (kept within the new maximum). Playing alone, your health stays.
+- **Armor:** X keeps his armor parts and their look. Zero gets a step darker per part, and all four make him black (as in 0.30's Zero story).
+- **What changes with the character:** items, capsules, the HUD icon, the colors, and the story lines all follow whoever you're playing at the time. Dying brings you back as the character you had.
+- The charge and any stored follow-up shot are dropped when you switch.
+
+### When it works
+
+- In the story (GAME START / PASS WORD), in the eight Maverick stages and the Doppler stages.
+- Only from a plain state: standing, walking, jumping, falling, landing, dashing, or on a wall (sliding down or kicking off it, since 0.31.5). Not while hurt, on a ladder, in a Ride Armor, during dialog or while beaming in. If your partner is in, he has to be in a plain state too. If nothing happens, try again a moment later.
+- **Not** in the intro stage (its scenes are scripted around who you picked) or VS mode. (Since 0.31.5 it works in Boss Rush: see above.)
+
+## New in 0.31: Zero rides the Ride Armors
+
+- **In the story, Zero can use the Ride Armor platforms** (the Robot Ride platforms that only took X before). Step on one and pick an armor with Up/Down and Y, as X does. All four armors work: Chimera, Kangaroo, Hawk and Frog.
+- **Getting out and back in** works as for X: Up + jump to jump out, and land on (or walk into) the armor to get back in.
+- **How he looks:** his head, his hair streaming back and his shoulders show over the cockpit, where X's head and shoulders go.
+- While Zero rides, the HUD bar shows the armor's health, as for X.
+
+## New in 0.31: VS secret: the K Ride Armor
+
+- On the VS MODE screen (1P VS 2P / 1P VS CPU), **press Select**. A sound plays. Then pick **1P VS CPU** and any of **X VS ZERO** (you're X), **ZERO VS X** (you're Zero, against the CPU's gold X) or **YOU VS BOTH** (X + ZERO, playing X or Zero).
+- Every round, the Kangaroo Ride Armor drops on you and you climb in.
+- **Every round opens with dialogue** while the armor comes in (rounds 2 and 3 too), and the fight only starts once you're in the armor. No more armor popping in after the fight has started.
+- **The armor's health shows on your HUD bar** and goes down as it gets hit (X's bar when you play X, Zero's bar when you play Zero).
+- The armor's punch hits the other fighter for 4, and its charged drill for 6 (black Zero's double damage doesn't apply in the armor). The other fighter's shots, saber and (HARD CPU) body hit the armor, not you. When the armor's health runs out it flashes faster and faster, then breaks down, and you fight on foot.
+- **YOU VS BOTH:** you get the armor against both CPUs, playing X or Zero. Your punches hit both of them, and both of them hit the armor. Round 1 has its own lines ("two against one"). The third fighter's graphics normally sit where the armor's go, so in this mode the armor's graphics are loaded into a different part of sprite memory.
+- Picking 1P VS 2P or going back to the title turns the secret off.
+
+## New in 0.31.6: smoother Boss Rush
+
+- No charge sparkles around X and Zero while they charge, and no body-armor shield in front of X after a hit (armored and gold X), the same as VS mode. Fewer sprites on screen, so less slowdown. Charged shots and the saber work the same.
+- Without the shield, X's body armor no longer takes a point off the next hit in Boss Rush.
+
+## New in 0.31.5: swap on walls, and in Boss Rush
+
+- **Swap on walls:** Select now also works while you slide down a wall or kick off it. The other character carries on from the wall. Player 2 can be on a wall too.
+- **A clean swap:** both players disappear for 4 frames (a fifteenth of a second) and come back as the new characters. Before, the first frame or two showed the new character with the old one's graphics.
+
+- **Select on controller 1 swaps X and Zero in Boss Rush too,** in every stage of the rush, from the same states as in the story.
+- If player 2 is in, he swaps with you (you X, him Zero, and back), and health goes with the character.
+- **X rush:** X keeps the armor you picked. **Zero rush:** X is plain X (for an armored X, play the X rush).
+- Zero can't use the special weapons in a rush. Swapping always brings either one in on the buster: X comes back on his X-Buster (gold X too), whatever weapon was picked before.
+- As Zero, L or R is the black armor switch, as in a Zero rush; it turns off when you swap.
+- You keep the character you swapped to through lost lives and into the next stages.
+
+## New in 0.31.4: player 2 joins a Zero rush as X
+
+- In **BOSS RUSH → ZERO**, press **Start on controller 2** to join as X. He's plain X in his own colors (no armor parts), as when the story is played as Zero, with his own "X" health bar next to Zero's "Z". (For an armored X, pick X in the Boss Rush menu.)
+- He drops out and rejoins as in co-op: if he goes down, Start again after a moment.
+- Nobody joining: the Zero rush plays exactly as before.
+
+## Fixed in 0.31.3
+
+- **VS mode, black Zero in the K Ride Armor:** his double damage carried over to the armor's punch and drill (8 and 12). The black armor's buff is now for Zero on foot only; in the Ride Armor the punch takes 4 and the drill 6, as for anyone.
+
+## Fixed in 0.31.2
+
+- **VS mode, the K Ride Armor's charged drill did no damage:** the needles came out but the other fighter took nothing. VS mode's damage list had the punch but not the drill. The drill now takes 6 (the punch 4). Works in X VS ZERO, ZERO VS X and YOU VS BOTH.
+
+## Fixed in 0.31.1
+
+- **Garbled sprites on accurate emulators and hardware-style Cx4 (Mednafen / SNES Faust, Polymega):** once player 2 joined, Zero, X and player 2's health bar came out in scrambled pieces. The game tells the Cx4 chip how many sprite entries at the start of the list are taken by health bars (`$E4`) and how many bytes of sprite-size bits those use (`$E6`). The mod raised the first for player 2's bar (and the boss, third-player and twin-boss bars) but not the second, so the Cx4's own program wrote the size bits of other sprites over the bars' entries. Snes9x and other emulators that skip the Cx4's program only read `$E4`, which is why it only showed up on some systems. Both now move together.
+
+## Fixed in 0.31
+
+- **ZERO VS X, Buffalo's arena (and the other wide arenas):** the camera started in the middle of the room instead of on the left side where you start. It now starts on your side.
+- **Zero turned left when he swung the saber** (the swing after a full charge's two shots), whichever way he was facing. A jump in the code for his special-weapon poses (`zpose.asm`, at `$04:A692`) went to the wrong place, the game's "face left" step. He now swings the way he faces. (0.30 has this bug too.)
+- **A stray tile next to Zero in a Ride Armor** (a 16x16 piece drawn a short way in front of the armor) is gone.
+- **YOU VS BOTH, the CPU X's buster shots and sparks:** they were drawn from the wrong part of sprite memory, so his small shots were often invisible and his sparks came out garbled. They now look like everyone else's.
+
+## 0.31: speed
+
+- Measured stage by stage: playing alone the game keeps full speed; with two players it drops frames in the busy parts of some stages (the game runs two players' worth of work on the same CPU), as in 0.30.
+- This build's new sprite hook (for Zero in a Ride Armor) ran its checks for every object drawn. It now leaves early unless a Ride Armor is out, so two-player speed is back within 1% of 0.30's.
+
+## 0.31: tested in the emulator
+
+- Switching: alone, with the CPU partner and with a second player in Hornet's stage, both ways; all four armor parts; 48,000 frames of random play with about 500 switches, including deaths and respawns.
+- Zero in the story: all four Ride Armors from the stage 6 platform, walking, punching, jumping, getting out and back in, and 1,500 frames of random play on each. X riding the same platform still works as before.
+- VS secret: full three-round matches in four arenas (including Buffalo's and the other wide ones) as X against CPU Zero and as Zero against CPU gold X: the dialogue every round, getting in, punches landing, hits going to the armor, the armor's health on the HUD, the armor breaking down, getting out and back in, and the HARD CPU's touch.
+- VS secret in YOU VS BOTH, playing X and playing Zero: full matches in four arenas, the dialogue every round, punches landing on both CPUs, both CPUs' shots, saber and (HARD) body hitting the armor, the armor's health on your bar, getting out and back in, and a scan of every sprite drawn over thousands of frames for anything showing the wrong graphics.
+- Every VS mode (1P VS 2P, X VS ZERO, ZERO VS X, YOU VS BOTH both ways) with and without the secret, in four arenas: every match plays through to the title.
+- Boss fights with switching: all eight Mavericks, playing with player 2, switching during the fight, through to the weapon screen.
+- The Doppler stages with switching, including a Doppler stage boss and a Maverick rematch in the teleporter room.
+- Passwords and continues: a password from the game-over screen, entered on the PASS WORD screen, into a Doppler stage; switching there, losing every life, continuing, and switching again. Each death brings you back as the character you had.
+- Built with the switch turned off, the ROM is exactly 0.30's.
+
+## 0.31: how it's built
+
+`src/swap.asm` (`SwapTick`, from the HUD hook every frame). Player 1 is changed in place the way the game sets up a character for a new life (`$04:A63C`, `$04:B645`, `$04:B5BB` for the armor pieces), with his animation pointed into the new set (`$04:B967`) and his colors loaded for his weapon (`$04:B6C3`). The "played as Zero" flag follows him. Player 2 is set up the way 0.30 sets him up when he joins (Zero for X, plain X for Zero), with his animation set again at his next update (`SwapP2Anim`). The build flag `!CharSwap` (in `coop.asm`) turns it all off.
+
+Zero in a Ride Armor is in `src/vsride.asm`. Getting in and out (`$03:A16x`-`$03:A25B`) put in X's riding frames, hit box and graphics; Zero keeps his own (`ZRideTab`, `ZRideOff`, `ZRideGfxIn`/`Out`), and his rider sprite is his running frame cut down to his head, hair and shoulders (`ZRideMap`, at the Cx4 sprite list builder, `$03:8FD5`). The platform and an empty armor no longer turn him away (`$03:D777`, `$03:9639`).
+
+The VS secret is `VsRideTick` (from `VsTick`): it loads the armor's graphics and palette like the platform does (graphics set `$69`, `$00:B4FF`), uploads its body tiles, sets up the armor object at `$0CC8` above the rider in its drop-in state, and hands it to him a second later (`$04:D169`). The armor only knows the player block (`$09D8`), so when you're Zero (player 2) its update runs with his block swapped in (`ArmUpd`, at `$00:DA75`): it drops on him, reads his buttons, and its punch counts as his shot. Meanwhile, getting in and out leave player 1's HUD, colors, graphics and armor parts alone. Hits go to the armor through the game's own armor hit (`$04:CC5C`, `$04:CE8F`). It's built only with `!CharSwap` on too.
+
+In YOU VS BOTH, the third fighter (the CPU X) uses sprite page 1's `$100-$17F`, which is where the armor's tiles go in the other modes. Nothing else draws from page 1's `$180-$1FF` in the arena, so there the armor's body upload goes to `$7800`, its graphics set to `$7C00` (`RideSetDest`, at the set loader `$00:B56C`), and the armor, its punch and its pieces draw from tile `$80` on (`RideLayout`, in the sprite list hook). Player 1's "Z" icon moved to `$16E` to make room. The CPU X's buster shots and sparks are drawn from page 0, where their graphics are.
+
+## New in 0.30: play the story as Zero
+
+- **After GAME START (and after PASS WORD), the game asks who you play: X or ZERO.** X is the normal game, the same as 0.29. ZERO plays the whole story as Zero.
+- **The roles are swapped.** In the intro stage Zero and X take down the machine together, then Zero is the one caught in the trap and X comes to get him out. Zero gets X's lines all through the story and X gets Zero's, and the scenes where the partner shows up (after the intro boss, Dr. Cain's lab, the call-for-help hand-offs) show X.
+- **Player 2 and the computer helper join as X** in a Zero game: Start on controller 2, or pause and press L, as before. X has his buster and charge, with no armor and no weapons. Their health bar shows an X icon and player 1's shows a Z.
+- **Armor capsules work for Zero.** In a Zero game only Zero can open them (player 2's X can't take a part). What each part does for him:
+  - **Arm:** his buster shots do double damage.
+  - **Legs:** air dash, and the upward dash (up + dash in the air), with his own frames and a burst at the start.
+  - **Body:** damage taken is halved.
+  - **Head:** works as it does for X.
+  - After the capsule he does a pose, as X does, instead of vanishing.
+- **Zero gets the special weapons.** Beat a Maverick and the weapon is his. **L and R switch weapons**, as for X. Each weapon gives his armor its own colors (the weapon's colors on his trim; Gravity Well's turns him silver).
+- **Weapons are off in co-op.** While player 2 or the computer helper is in, Zero is put back on the buster and L and R do nothing. Once they leave, the weapons come back.
+- **No black-armor switch in a Zero game: he earns it.** His armor darkens with each part he collects and is fully black with all four (below). The black armor's switch and double damage stay in co-op (for player 2's Zero in the X game), Boss Rush and VS mode.
+- **Victory pose.** After a boss, Zero does a pose instead of going invisible.
+- **Zero's armor darkens with each armor part.** His red turns a step darker for every part he has: deep red with one, darker with two, near black with three, and the black armor's colors with all four. (Zero's sprites draw his helmet, body, arms and legs with the same three reds, so a single part can't color just its own piece of him.) His weapon colors still show when a weapon is selected. (`ZPartPal`, every frame: each color of his palette still equal to one of the five versions is set to the one wanted.)
+- **Zero fills sub tanks:** picking up energy at full health fills his sub tanks, as for X (`$01:D837` let only X do it).
+- **After the intro boss,** X beams in and lands on the floor next to Zero. With X's frames in place of Zero's he stood in the air. He's now set down on the floor Zero stands on: his position is Zero's plus 8 px, since X's scene frames are drawn 8 px higher than Zero's from the same spot (`ZLandFix`). Checked by pixel: X's and Zero's feet now end on the same row.
+- **Zero's full charges of Triad Thunder, Ray Splasher and Gravity Well work.** These three put the player in one of X's weapon poses (the ground punch, the arm raised), and the weapon waits for that pose's script to say "the fist hits" or "the beam is out". Zero was switched to a set of his that has no such scripts: he stood there, the pose ended early and the charged shot fizzled. Now he runs X's script for the pose, so the shot comes out exactly as X's does, but is drawn in his own frames: a crouch and his fist up for the wind-up, a knee and a hand on the ground for Triad Thunder's punch, his arm raised high for the other two (`zpose.asm`). Checked against X frame by frame, on the ground and in the air, with and without armor parts.
+- **Zero's full-charge Tornado Fang drill works.** Holding Tornado Fang at full charge puts a big drill in front of the player for as long as Y stays down. The drill only stayed out for X: every frame it checks for X's frame table, and places itself by player 1's frame number. For Zero it vanished the frame it appeared and the charge started over. Now it stays out for Zero too, held at his hand while he stands, walks, jumps, dashes and turns, in the same spot as X's (where Zero's frame has no place in its table, X's frame for the same move is used). Acid Burst, Parasitic Bomb, Spinning Blade and Frost Shield's full charges already matched X's.
+- **Boss Rush as Zero** is unchanged: Zero alone, L or R for black armor. (VS mode has its own news below.)
+- **Tested** in the emulator: the opening and the capture and rescue scenes, the intro boss and the scene after it, Dr. Cain's lab, all eight Maverick stages as Zero with a bot playing and player 2 joining and leaving, a lost life (Zero beams back in as Zero), each armor part and the weapon colors. With X picked, co-op and single-player play out update by update the same as 0.29, apart from the saber and flinch changes below.
+- **Known gaps:** the Zero story is new, so expect a few scenes that still show the wrong character. Tell me where and I'll fix them.
+
+## New in 0.30: a quicker Z-Saber, a stronger one in VS mode, a shorter flinch, a back button, and a smoother X + ZERO
+
+- **The Z-Saber comes out sooner.** After a full charge's two shots, the next press swings the saber. The game held that press until both shots had left the screen and all their sparkles were gone. Now it only waits for the second shot's pose to end. Measured with Zero: the swing starts 20 frames (a third of a second) sooner, 28 frames after the release instead of 48. X's saber after the gold armor's double charge waited for his blasts to fly off screen, up to about two seconds. Now it comes out about 50 frames after the release.
+- This applies everywhere the saber is used: Zero in co-op, in the story as Zero and in Boss Rush, and X with the gold armor. The swing itself (6 frames before the blade, 25 frames of blade) is unchanged. The computer-played Zeros still time their swings as before.
+- **In VS mode the saber hits harder:** the slash does 8 instead of 4 and the wave 5 instead of 3, out of 32 health (black armor doubles these, X's body armor halves them). The HARD CPU's own damage values are unchanged.
+- **A shorter flinch, in every mode.** Every hit, even a single buster pellet or an enemy's touch, froze X or Zero in the hurt pose for about half a second (30 frames). In a VS duel that felt like the game stalling, and in co-op it left you stuck while the other player kept moving. Now the flinch ends after 17 frames, as the hurt animation reaches its last (long) frame. The knockback, the hit sound and the blinking after a hit are unchanged. (In the hurt state's handler at `$04:8680`, the animation is marked finished once its frame timer is 8 or more.)
+- **"FINAL MIX MOD" on the title screen,** in pale white under the Mega Man X3 logo (drawn with the menu, `MenuDraw`).
+- **Title menus, tidied up.** Each submenu's heading (BOSS RUSH, VS MODE, YOU PLAY AS (was YOU PLAY), CPU LEVEL, ARENA, MUSIC and the rest) is now centered and drawn in yellow, so it reads as a title and not as one of the choices (lit choice orange, the others blue).
+- **More time on the title screen.** Left alone, the title used to go back to the story's opening after about 4 seconds (from the last cursor move). Now it waits about 16 (its countdown, `$3B`, moves every 4th frame).
+- **Back button on the title menus.** Press **B** on any of the new title menus (Boss Rush, VS mode, X or ZERO, arena, music) to go back to the menu before it, with the item you picked still lit. On the main menu B does nothing, as before. (Every Start that opens a menu remembers the menu and item it came from, up to 8 deep.)
+- **Clearer VS CPU menu.** After VS MODE and 1P VS CPU, the choices now read **X VS ZERO** (you play X against the CPU's Zero), **ZERO VS X** (you play Zero against the CPU's gold armor X) and **YOU VS BOTH** (X + ZERO: you pick who you play next). The heading says YOU VS CPU, and the level menu's heading says CPU LEVEL.
+- **X + ZERO runs smoother.** With three fighters on screen the game ran out of time in about 1 frame in 6 when shots piled up (measured over 2 minutes in three arenas: 16% of frames dropped). Two changes, in X + ZERO only:
+  - **Every other charged-shot sparkle is dropped** as it appears (the game's own effect delete, as a sparkle's end does), so the trails are about half as dense.
+  - **The two CPUs shoot less heavily:** on NORMAL and HARD they now release 7 in 10 charges at a lower level (gold X's big blast comes from the higher ones), go for a full charge 1 in 10 times instead of 6 in 10 on HARD, rapid-fire half as often, and pause briefly after a charged shot. These come from their own parameter table (`AiLvXZ` in `vsai.asm`). The other VS setups keep the old one.
+  - **No body-armor barrier and no sparkle puffs (all VS modes).** The gold armor's big red-orange shield that pops up in front of X after a hit (for you and for the CPU's gold X) is gone in VS mode, and so is the extra point of damage it took off the next hit (`$04:8820`). So are the puffs of white sparkles at the fighters' feet (`$04:B454`), which piled up with three fighters charging and getting knocked around.
+  - **No charge sparkles in any VS mode, in every arena.** The small sparkles that gather around a fighter while he charges (companion type 1, `VsNoAura`) and the pink sparkles around Zero's charged shots (`VsNoSpark`) are left out in 1-vs-1, 1P VS 2P and X + ZERO. Less to draw, and a cleaner screen. The story keeps them.
+  - Measured the same way: about 4.5% of frames dropped (3%, 7% and 3.5% in the three arenas), down from 16%.
+- **How it works:** the saber press check at `$04:AEE8` (`LDA $0A55 : ORA $0A82`: the player's shots out, and their sparkles) now checks only the player's state (the charged shots' poses, `$4A` and `$4C`). Swinging during those poses would clear the stored saber without a swing. VS mode's damage table (`VsDmgTab`) has the new values.
+
+## New in 0.30: VS mode arenas and music
+
+- **After the VS menus (players, then armor or CPU level), two new questions: ARENA and MUSIC.**
+- **ARENA** is a list shown 4 at a time. Press Down past the last one or Up past the first one to see the rest:
+  - **DOPPLER LAB:** the room VS mode always used.
+  - **HORNET, BUFFALO, BEETLE, SEAHORSE, CATFISH, CRAWFISH, RHINO, TIGER:** the eight Mavericks' boss rooms, with the Maverick taken out. Each is one screen wide, like the Doppler Lab, except **BUFFALO**: Blizzard Buffalo's room is two screens wide, and the whole of it is the arena, as in his fight. There the camera scrolls: in 1P VS 2P it stays between the two of you, and you can't get more than a screen apart (the one walking away pulls the other along, as in co-op); against the CPU it follows you. In every VS mode the fighters start on the room's left screen, spaced as in the one-screen arenas (X by the left wall, Zero, and in X + ZERO the CPU's X, to his right), so nobody starts at the screen's edge (`ArRec11`).
+  - **In 1P VS CPU only, FACTORY:** about two screens wide, the hall after Blast Hornet's first checkpoint, out to the yard. The camera follows you. The CPU fighters are kept inside the arena too, but they can be off screen.
+  - **RANDOM:** picks one when the match starts (FACTORY only in 1P VS CPU). All three rounds are in that room.
+- **Straight to the fight.** Picking a Maverick's room no longer plays that Maverick's preview first (the stage start shows it while his weapon isn't owned, `$00:9A5D`). VS mode goes straight to the stage load, as it always did for the Doppler Lab: about 15 seconds less before the fight.
+- **MUSIC:** STAGE (the arena's own stage music, which is the old VS music in the Doppler Lab), BOSS BATTLE (the Maverick fight theme, picked by default), SIGMA (Sigma's fight) or INTRO STAGE.
+- Works in every VS setup: 1P VS 2P, 1P VS CPU against Zero or the gold X, and X + ZERO.
+- **How it works:** each arena is loaded from a checkpoint record of our own, like Sigma's room in Boss Rush: the stage's checkpoint with the arena's camera and scroll values, and the player dropping in on the left. VS mode already removes Mavericks as they appear, so the rooms are empty. The music is swapped where a stage load picks its track (`$00:9B98`, the stage music table at `$06:890B`). The walls and start positions that VS mode had fixed for the Doppler Lab now come from the arena (the CPU's wall checks, and where X, Zero and the third fighter start). Every frame the camera's range is set to the arena and every fighter is kept between its walls. Without that, the stages' own camera zones would open up the bigger arenas, and in Blizzard Buffalo's room (with him gone) walking right would scroll on into the next room. In the wide ones the camera follows player 1; against the CPU gold X you play Zero, who is player 2, so there it follows Zero; in 1P VS 2P it follows the point between you, co-op's way, and you're kept at most 208 px apart.
+- **Fixed: player 1's "Z" in X + ZERO when you play Zero.** Your health bar's "Z" turned into a broken tile partway through a match: it sat in sprite tiles that the CPU gold X's blast graphics also load into. It now sits where his graphics never go (the page-1 copy of X's own icon tiles).
+- **Fixed for Volt Catfish's room:** an object by the door, off screen, uses sprite palette 7, which made Zero borrow X's colors in that stage. In VS mode Zero keeps palette 7 there.
+- **Tested** in the emulator: every arena from the menus, full best-of-3 matches against the HARD CPU Zero in Crush Crawfish's room, the CPU gold X in Neon Tiger's room and in FACTORY, and X + ZERO in Gravity Beetle's and Blizzard Buffalo's rooms, 1P VS 2P in Blizzard Buffalo's room (both players on screen, walls reached at both ends) (rounds reload in the same room with the chosen music, and the match returns to the title), RANDOM, and paging through the list both ways in 1P VS 2P and 1P VS CPU. With DOPPLER LAB and STAGE picked, VS mode plays out update by update the same as 0.29 (apart from the saber and flinch changes above).
+
+## New in 0.29: the computer Zero follows X down ledges
+
+- **When X drops down from a ledge, the computer Zero now goes down after him, even when the way down is behind him.** He remembers where X left the ground for 6 seconds. While X is 24 px or more below him and he's up at about that height, he walks to that spot and goes off it the same way X did. If X jumped off, he goes back to the spot and jumps from there too. He doesn't dash meanwhile, so he doesn't overshoot.
+- **Before,** he only ever walked toward X. If X went down to the left and walked back under the platform, or stopped right below him, Zero stood on top over X until the "X far above or below" catch-up warped him after 3 seconds. If X was less than 80 px below, he never got warped and just stayed up there.
+- **Tested** with a bot X walking through every checkpoint and stage start, dropping off each ledge it found and then either waiting or turning back under the ledge. Zero got down on his own after 64 of 101 drops, against 52 of 99 in 0.28, and after X turned back under the ledge 36 of 54 times (0.28: 28 of 53). That includes following X down into Crush Crawfish's boss room, where 0.28 left him outside. Most of the drops he still misses are fights where he's busy with an enemy, or long falls where the catch-up puts him with X anyway.
+- His ladder climbing is unchanged (the Gravity Beetle ladder run plays the same as 0.28). With Zero not called, co-op, single-player and VS mode play out update by update the same as 0.28.
 
 ## New in 0.28: black armor for your Zero in VS mode
 
@@ -48,7 +217,7 @@ This is an early prototype. It is tested in the intro stage, all eight Maverick 
 - **Zero plays the whole rush alone, with controller 1.** He beams in at every stage start and after every lost life, goes through the boss doors, and fights every Maverick, the final chain and Sigma. In the original game Zero can't fight bosses: a marker before each boss area hands over to X ("Zero, I'll handle this."). In Boss Rush as Zero that hand-over doesn't happen.
 - **Losing Zero is a lost life.** In the original, when Zero goes down he says goodbye at the base ("Sorry X... I've failed...") and is gone for good. Here it costs a life, the same as X's death, and he beams back in; a game over works as usual.
 - Zero has X's health in Boss Rush (all eight heart tanks), his own buster, charged shots and Z-Saber, and his "Z" icon on the health bar. He takes the weapon after each win as X would, but can't use it, as in the original.
-- **Controller 2 can't join a Zero rush.** Start on controller 2 does nothing. To play Boss Rush together, pick X.
+- **Controller 2 can't join a Zero rush.** Start on controller 2 does nothing. To play Boss Rush together, pick X. (Since 0.31.4 player 2 can join as X: see above.)
 - **How it works:** the game itself can run Zero as the player: the player's character byte (`$0A8E`) set to 2 makes the player code, graphics and palette his. The player's start-of-life setup (`$04:80C3`) sets X; in a Zero rush it sets Zero. The boss-area marker (`$01:CEF0`) and the death code (`$04:9345`) skip their Zero cases in a Zero rush.
 - **Tested:** both Maverick stages (normal) as Zero, from the stage start through every boss, the weapon get and the next stage; the final chain from Bit to Sigma's second form; a lost life during a fight (one life off, Zero back in); controller 2 pressing Start throughout (no join). Sigma's escape and last form weren't reached by the test bot, as before (see 0.9).
 
@@ -650,7 +819,7 @@ With both players on screen the game now does about 10–12% less work per frame
 1. You need your own **Mega Man X3 (USA)** ROM, unheadered, 2 MB.
    - CRC32 `0xFA0FE671`
    - SHA-1 `b226f7ec59283b05c1e276e2f433893f45027cac`
-2. Apply `MMX3_Coop_v0.28.bps` with Flips, or with an online BPS patcher such as Rom Patcher JS.
+2. Apply `MMX3_Coop_v0.29.bps` with Flips, or with an online BPS patcher such as Rom Patcher JS.
 3. Play it in an emulator that supports the Cx4 chip (snes9x, bsnes, Mesen) with two controllers.
 
 ## Controls
