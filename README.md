@@ -13,20 +13,20 @@ If your file is 2,097,664 bytes, it has a 512-byte header. Remove the header fir
 
 ## 2. Apply the patch
 
-Download `MMX3_Coop_v0.31.6.bps` from the [Releases](../../releases) page, then use one of these:
+Download `MMX3_Coop_v0.31.7.bps` from the [Releases](../../releases) page, then use one of these:
 
 ### In your browser (easiest)
 
 1. Open [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/).
 2. For **ROM file**, choose your Mega Man X3 ROM. The page shows its CRC32, so you can check step 1 here.
-3. For **Patch file**, choose `MMX3_Coop_v0.31.6.bps`.
+3. For **Patch file**, choose `MMX3_Coop_v0.31.7.bps`.
 4. Click **Apply patch** and save the new file.
 
 ### On your computer
 
 1. Download [Flips](https://github.com/Alcaro/Flips) (Windows, Linux; Mac users can use Rom Patcher JS).
 2. Open Flips and click **Apply Patch**.
-3. Pick `MMX3_Coop_v0.31.6.bps`, then your ROM.
+3. Pick `MMX3_Coop_v0.31.7.bps`, then your ROM.
 4. Choose where to save the patched game.
 
 Keep your original ROM. Patching makes a new file and doesn't change the original.
