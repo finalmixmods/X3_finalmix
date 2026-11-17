@@ -1,4 +1,4 @@
-# Mega Man X3 Co-op — prototype 0.31.6
+# Mega Man X3 Co-op — prototype 0.31.7
 
 A two-player patch for **Mega Man X3 (USA)** on the SNES. Player 1 is X (or Zero, see 0.30; switch any time with Select, see 0.31); **player 2 joins as Zero** on controller 2 (as X when player 1 is Zero).
 This is an early prototype. It is tested in the intro stage, all eight Maverick stages and their bosses, the four Doppler stages and their bosses (including the Maverick rematches, Dr. Doppler and Sigma), and the Ride Armors.
@@ -36,6 +36,11 @@ This is an early prototype. It is tested in the intro stage, all eight Maverick 
 - The armor's punch hits the other fighter for 4, and its charged drill for 6 (black Zero's double damage doesn't apply in the armor). The other fighter's shots, saber and (HARD CPU) body hit the armor, not you. When the armor's health runs out it flashes faster and faster, then breaks down, and you fight on foot.
 - **YOU VS BOTH:** you get the armor against both CPUs, playing X or Zero. Your punches hit both of them, and both of them hit the armor. Round 1 has its own lines ("two against one"). The third fighter's graphics normally sit where the armor's go, so in this mode the armor's graphics are loaded into a different part of sprite memory.
 - Picking 1P VS 2P or going back to the title turns the secret off.
+
+## Fixed in 0.31.7: the L button
+
+- **L (weapon switch left) stopped working once you played a stage.** The Select swap (0.31) kept a short timer in the byte where the game stores the L button's setting, and ran it down to 0 in the first frames of every GAME START or PASS WORD stage. From then on L did nothing until a reset or power-off: no switching weapons to the left, and in VS mode and Boss Rush no black-armor toggle on L. The swap's timer now has its own RAM, so the button setting is left alone.
+- If you load an emulator save state made with an earlier version, it still has the wiped setting: reset the game (or power it off and on) and L works again.
 
 ## New in 0.31.6: smoother Boss Rush
 
